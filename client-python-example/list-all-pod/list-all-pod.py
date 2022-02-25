@@ -11,8 +11,8 @@ def main():
     print("Listing pods with their IPs:")
     ret = v1.list_pod_for_all_namespaces(watch=False)
     for i in ret.items:
-        print("%s\t%s\t%s\t%s\t%s" %
-              (i.status.host_ip, i.status.pod_ip, i.status.phase, i.metadata.namespace, i.metadata.name))
+        print("%s \t%s \t%s \t%s \t%s \t%s \t%s \t%s        \t%s" %
+              (i.status.message, i.spec.dns_config, i.spec.restart_policy, i.spec.node_name, i.status.host_ip, i.status.pod_ip, i.status.phase,i.metadata.namespace, i.metadata.name))
 
 
 if __name__ == '__main__':
