@@ -6,6 +6,7 @@ Linux环境 kubernetes环境
 ##### linux 下python 环境安装
 
 ```
+yum -y install zlib-devel
 wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz
 
 tar xf Python-3.8.6.tgz
