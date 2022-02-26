@@ -31,14 +31,14 @@ def main():
     print("---- 监视PVC的变化 ---")
     
     # 打印表格类型
-    print("%-30s\t%-40s\t%-6s" % ("Name", "Volume", "Size"))
+    print("%-30s\t%-20s\t%-40s\t%-6s" % ("Storageclass", "Name", "Volume", "Size"))
     for pvc in pvcs.items:
     
     # 取出list过后的值放入对应的表格中
-        print("%-16s\t%-40s\t%-6s" %
+        print("%-16s\t%-16s\t%-40s\t%-6s" %
     # https://github.com/kubernetes-client/python/blob/master/kubernetes/docs/V1PersistentVolumeClaimSpec.md
     # 还是按照之前将的python-client包的内容去拿对应的值
-              (pvc.metadata.name, pvc.spec.volume_name, pvc.spec.resources.requests['storage']))
+              (pvc.spec.storage_class_name, pvc.metadata.name, pvc.spec.volume_name, pvc.spec.resources.requests['storage']))
     print("")
 
 
