@@ -20,11 +20,11 @@ def main():
     print("")
     print("---- 监听PVC的变化 ---")
     #  取出list过后的值放入对应的表格中
-    print("%-30s\t%-40s\t%-6s" % ("Name", "Volume", "Size"))
+    print("%-30s\t%-20s\t%-40s\t%-6s" % ("StorageClass", "Name", "Volume", "Size"))
     for pvc in pvcs.items:
-        print("%-16s\t%-40s\t%-6s" %
+        print("%-16s\t%-16s\t%-40s\t%-6s" %
     # 取出list过后的值放入对应的表格中
-              (pvc.metadata.name, pvc.spec.volume_name, pvc.spec.resources.requests['storage']))
+              (pvc.spec.storage_class_name, pvc.metadata.name, pvc.spec.volume_name, pvc.spec.resources.requests['storage']))
     print("")
 
     # 持续Watch pvc的变化
